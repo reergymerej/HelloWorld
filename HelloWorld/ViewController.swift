@@ -21,9 +21,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showMessage(sender: UIButton) {
-        let alertController = UIAlertController(title: "Welcome to my first app.", message: "Hello, World.", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        present(alertController, animated: true, completion: nil)
+        var dict = [
+            "🤩": "Stars",
+            "🥑": "Avocado, baby.",
+            "🐮": "Moo",
+            "😎": "Cool",
+        ]
+        
+        if let buttonLabel = sender.titleLabel?.text {
+            let message = dict[buttonLabel]
+            
+            let alertController = UIAlertController(title: "Emoji Meaning", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            present(alertController, animated: true, completion: nil)
+        }    
     }
 }
 
